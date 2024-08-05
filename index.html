@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 	<html lang="es">
 	<head>
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Password Generator | Jailbreak-Update</title>
@@ -20,8 +23,8 @@
 				<div class="aviso-cookies" id="aviso-cookies">
 					<img src="img/js.png" alt="galleta" class="galleta">
 					<h3 class="titulo">JavaScript</h3>
-					<p class="parrafo">Esta desactivado el JavaScript favor de activarlo para usar la Pagina</p>
-					<a class="enlace" href="https://www.enable-javascript.com/es/" target="_blank">Activar JavaScript</a>
+					<p class="parrafo">Para usar esta página, por favor activa JavaScript en tu navegador.</p>
+					<a class="enlace" href="https://support.google.com/adsense/answer/12654?hl=es-419" target="_blank">Activar JavaScript</a>
 				</div>
 				<div class="fondo-aviso-cookies" id="fondo-aviso-cookies"></div>
 			  </noscript>
@@ -79,9 +82,12 @@
 						<button class="btn btn-generar" id="btn-generar">Generar <i class="fas fa-lock"></i></button>
 					</div>
 					<div class="col">
-						<input type="text" class="input-password" id="input-password" readonly value="Jailbreak-Update">
+						<input type="text" class="input-password" id="input-password" readonly value="JByteUpdate" autocomplete="off">
 						
 					</div>
+				</div>
+				<div id="mensaje-alerta" style="display: none; color: #ff4b4b; text-align: center; margin-top: 10px;">
+					La página recargará en <span id="tiempo-restante">20 segundos</span>.
 				</div>
 				<div class="fila alerta">
 					<div class="col">
@@ -92,7 +98,7 @@
 				</div>
 			</form>
 			<div class="creditos">
-				<p>Creado por Jailbreak-Update</p>
+				<p>Creado por JByteUpdate</p>
 			</div>
 		</div>
 	
@@ -100,5 +106,47 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="https://jailbreak-update.github.io/jquery/jquery-3.3.1.min.js"></script>	
 		<!--script src="https://arirubmusic.github.io/js/block.js"></!--script-->
+		<script src="js/logic.js"></script>
+
+		<script>
+			// Bloquear copiar y pegar con el teclado en todo el documento
+			document.addEventListener('keydown', function(event) {
+				// Bloquear Ctrl+C (copiar) y Ctrl+V (pegar)
+				if (event.ctrlKey && (event.key === 'c' || event.key === 'v')) {
+					event.preventDefault();
+				}
+			});
+	
+			// Bloquear el clic derecho en todo el documento
+			document.addEventListener('contextmenu', function(event) {
+				event.preventDefault();
+			});
+	
+			// Bloquear copiar y pegar en un campo específico
+			var inputPassword = document.getElementById('input-password');
+			if (inputPassword) {
+				// Bloquear copiar y pegar con el teclado en el campo específico
+				inputPassword.addEventListener('keydown', function(event) {
+					if (event.ctrlKey && (event.key === 'c' || event.key === 'v')) {
+						event.preventDefault();
+					}
+				});
+	
+				// Bloquear el clic derecho en el campo específico
+				inputPassword.addEventListener('contextmenu', function(event) {
+					event.preventDefault();
+				});
+	
+				// Bloquear pegar desde el menú del campo de texto
+				inputPassword.addEventListener('paste', function(event) {
+					event.preventDefault();
+				});
+	
+				// Bloquear copiar desde el menú del campo de texto
+				inputPassword.addEventListener('copy', function(event) {
+					event.preventDefault();
+				});
+			}
+		</script>
 	</body>
 	</html>

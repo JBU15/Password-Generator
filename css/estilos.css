@@ -29,6 +29,7 @@
 body {
 	background: #533b3b;
 	color: #fff;
+	user-select: none; /* Bloquea la selección de texto */
 }
 
 a {
@@ -143,6 +144,9 @@ a:hover {
 /* Fila: Generar Contraseña */
 /* ------------------------- */
 .app .fila.generar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-bottom: 10px;
 }
 
@@ -190,14 +194,17 @@ a:hover {
 
 .app .fila.generar .input-password {
 	width: 100%;
+	max-width: 500px;
 	background: none;
 	border-radius: 4px;
 	border:1px solid rgba(255,255,255,.25);
 	color: #fff;
-	height: 40px;
-	line-height: 40px;
+	height: 60px;
+	line-height: 60px;
 	cursor: pointer;
 	transition: all .3s ease;
+	margin-top: 10px;
+	font-size: 17px;
 }
 
 .app .fila.generar .input-password:hover {
@@ -278,9 +285,11 @@ a:hover {
 /* ------------------------- */
 .creditos {
 	text-align: center;
+	
 }
 
 .creditos p, a {
 	font-size: 14px;
+
 }
 
